@@ -48,6 +48,12 @@ class MainActivityInstrumentedTest {
         //   .check(matches(isDisplayed()))
     }
 
+    @Test
+    fun shouldShowToolbar() {
+        onView(withId(R.id.toolbar))
+            .check(matches(isDisplayed()));
+    }
+
     companion object {
         const val USER_SEARCH = "Sporty"
         const val BUTTON_STRING = "Search"

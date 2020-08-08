@@ -8,6 +8,7 @@ buildscript {
     ext.runnerVersion = "1.3.0-rc02"
     ext.truthVersion = "1.0.1"
     ext.espressoVersion = "3.3.0-rc02"
+    ext.materialVersion = "1.2.0"
 
     repositories {
         google()
