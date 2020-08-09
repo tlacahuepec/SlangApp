@@ -9,6 +9,9 @@ buildscript {
     ext.truthVersion = "1.0.1"
     ext.espressoVersion = "3.3.0-rc02"
     ext.materialVersion = "1.2.0"
+    ext.daggerVersion = "2.23.2"
+    ext.lifeCycleExtVersion = "2.2.0"
+    ext.fragmentKtxVersion = "1.2.5"
 
     repositories {
         google()
