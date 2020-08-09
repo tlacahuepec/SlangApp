@@ -1,4 +1,4 @@
-package com.aa.slangapp.search.ui.api
+package com.aa.slangapp.search.api
 
 import android.view.View
 import androidx.lifecycle.LiveData
