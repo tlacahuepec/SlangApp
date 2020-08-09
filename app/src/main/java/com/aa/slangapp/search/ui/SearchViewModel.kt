@@ -3,7 +3,7 @@ package com.aa.slangapp.search.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aa.slangapp.search.ui.api.DataSource
+import com.aa.slangapp.search.api.DataSource
 import kotlinx.coroutines.launch
 
 //TODO: add tests
