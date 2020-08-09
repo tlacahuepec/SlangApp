@@ -43,9 +43,14 @@ class MainActivityInstrumentedTest {
         onView(withId(R.id.buttonSearch))
             .check(matches(withText(BUTTON_STRING)))
             .perform(click())
-        // TODO: assert after view model addition
-        // onView(withId(R.id.progressBar))
-        //   .check(matches(isDisplayed()))
+        onView(withId(R.id.progressBar))
+            .check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun shouldShowToolbar() {
+        onView(withId(R.id.toolbar))
+            .check(matches(isDisplayed()));
     }
 
     companion object {
