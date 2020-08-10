@@ -12,6 +12,9 @@ class SearchViewModel(private val dataSource: DataSource) : ViewModel() {
         Log.i("SearchViewModel", "SearchViewModel created...")
     }
 
+    val searchResults = dataSource.searchResults
+    val showRecyclerView = dataSource.showRecyclerView
+
     val showProgressBarValue = dataSource.showProgressBar
 
     fun onSearch() {
