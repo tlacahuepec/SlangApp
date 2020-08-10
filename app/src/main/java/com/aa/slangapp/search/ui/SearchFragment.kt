@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.aa.slangapp.databinding.FragmentSearchBinding
+import com.aa.slangapp.search.adapter.SearchResultsAdapter
 
 
 class SearchFragment : Fragment() {
@@ -22,9 +24,16 @@ class SearchFragment : Fragment() {
 
         // Set the LifecycleOwner to be able to observe LiveData objects
         binding.lifecycleOwner = this
-
         // Bind ViewModel
         binding.viewmodel = viewModel
+
+        binding.recyclerViewResults.adapter = SearchResultsAdapter()
+
+        viewModel.searchResults.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                (binding.recyclerViewResults.adapter as SearchResultsAdapter).submitList(it)
+            }
+        })
 
         return binding.root
     }
