@@ -63,7 +63,7 @@ class SearchFragmentInstrumentationTest {
             .perform(click())
         onView(withId(R.id.progressBar))
             .check(matches(isDisplayed()))
-        // TODO : fix after waiting for idle event
+        // TODO : fix after waiting for idle resource
 //        onView(withId(R.id.recyclerViewResults))
 //            .check(matches(isDisplayed()))
 //        onView(withId(R.id.progressBar))
