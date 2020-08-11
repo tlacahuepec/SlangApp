@@ -1,4 +1,4 @@
-package com.aa.dictionary
+package com.aa.slangapp.search.api
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

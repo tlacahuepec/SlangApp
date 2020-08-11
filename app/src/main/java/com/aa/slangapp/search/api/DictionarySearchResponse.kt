@@ -1,4 +1,4 @@
-package com.aa.dictionary
+package com.aa.slangapp.search.api
 
 import com.google.gson.annotations.SerializedName
 

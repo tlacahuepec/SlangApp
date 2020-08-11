@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aa.slangapp.databinding.SearchResultListItemBinding
-import com.aa.slangapp.search.model.SearchResult
+import com.aa.slangapp.search.api.SearchResult
+
 
 class SearchResultsAdapter :
     ListAdapter<SearchResult, SearchResultsAdapter.ViewHolder>(SearchResultItemDifferenceCallback()) {
