@@ -31,7 +31,7 @@ class SearchFragment : Fragment() {
 
         viewModel.searchResults.observe(viewLifecycleOwner, Observer {
             it?.let {
-                (binding.recyclerViewResults.adapter as SearchResultsAdapter).submitList(it)
+                // (binding.recyclerViewResults.adapter as SearchResultsAdapter).submitList(it)
             }
         })
 
