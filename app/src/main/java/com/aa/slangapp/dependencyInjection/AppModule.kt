@@ -2,11 +2,14 @@ package com.aa.slangapp.com.aa.slangapp.dependencyInjection
 
 
 import android.app.Application
-import com.aa.slangapp.com.aa.slangapp.search.localData.AppDatabase
+import com.aa.slangapp.BuildConfig
+import com.aa.slangapp.com.aa.slangapp.search.api.DictionaryClientInterceptor
+
 import com.aa.slangapp.dependencyInjection.ServiceModule
 import com.aa.slangapp.search.api.DictionaryService
 import com.aa.slangapp.search.api.DictionaryService.Companion.BASE_URL
 import com.aa.slangapp.search.data.DictionaryDataSource
+import com.aa.slangapp.search.localData.AppDatabase
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineScope
@@ -35,6 +38,7 @@ class AppModule {
     ): OkHttpClient {
         return upstreamClient
             .newBuilder()
+            .addInterceptor(DictionaryClientInterceptor(BuildConfig.KEY))
             .build()
     }
 

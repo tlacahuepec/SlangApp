@@ -32,7 +32,10 @@ class SearchResultsAdapter :
     class ViewHolder(private val binding: SearchResultListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: SearchResult) {
-            binding.searchResult = item
+            binding.apply {
+                searchResult = item
+                executePendingBindings()
+            }
         }
 
     }
