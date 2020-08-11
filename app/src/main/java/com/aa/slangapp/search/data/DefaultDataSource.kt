@@ -1,10 +1,10 @@
-package com.aa.slangapp.search.api
+package com.aa.slangapp.search.data
 
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
-import com.aa.slangapp.search.model.SearchResult
+import com.aa.dictionary.SearchResult
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -19,7 +19,7 @@ class DefaultDataSource(private val ioDispatcher: CoroutineDispatcher) : DataSou
     override val showProgressBar: LiveData<Int> = _showProgressBar
     override val showRecyclerView: LiveData<Int> = _showRecyclerView
     override val searchResults: LiveData<List<SearchResult>> = liveData {
-        val mockSearchResult = SearchResult(1, "definition", 0)
+        val mockSearchResult = SearchResult(1, "definition", 0, "")
         emit(listOf(mockSearchResult))
     }
 
