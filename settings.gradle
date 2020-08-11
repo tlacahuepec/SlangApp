@@ -1,3 +1,2 @@
-include ':dictionaryModule'
 include ':app'
 rootProject.name = "SlangApp"

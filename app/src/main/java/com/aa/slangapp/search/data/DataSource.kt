@@ -1,7 +1,7 @@
 package com.aa.slangapp.search.data
 
 import androidx.lifecycle.LiveData
-import com.aa.dictionary.SearchResult
+import com.aa.slangapp.search.api.SearchResult
 
 interface DataSource {
     val searchResults: LiveData<List<SearchResult>>

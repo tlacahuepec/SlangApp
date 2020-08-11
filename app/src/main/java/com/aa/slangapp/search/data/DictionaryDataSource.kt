@@ -1,8 +1,9 @@
 package com.aa.slangapp.search.data
 
-import com.aa.dictionary.DictionaryService
+import com.aa.slangapp.search.api.DictionaryService
+import javax.inject.Inject
 
-class DictionaryDataSource(
+class DictionaryDataSource @Inject constructor(
     private val service: DictionaryService
 ) : BaseDataSource() {
 
