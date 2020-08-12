@@ -1,4 +1,4 @@
-package com.aa.slangapp.com.aa.slangapp.search.localData
+package com.aa.slangapp.search.localData
 
 import android.content.Context
 import androidx.room.Database

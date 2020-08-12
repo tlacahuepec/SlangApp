@@ -12,7 +12,7 @@ interface DictionaryService {
     ): Response<DictionarySearchResponse>
 
     companion object {
-        private const val HOST = "mashape-community-urban-dictionary.p.rapidapi.com"
+        const val HOST = "mashape-community-urban-dictionary.p.rapidapi.com"
         const val BASE_URL = "https://$HOST/"
 
 //        fun create(): DictionaryService {

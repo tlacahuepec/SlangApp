@@ -10,7 +10,19 @@
         android:label="Search Fragment"
         tools:layout="@layout/fragment_search">
 
-        <action android:id="@+id/action_theme_fragment_to_sets_fragment" />
+        <action
+            android:id="@+id/action_search_fragment_to_search_results_fragment"
+            app:destination="@id/search_results_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/search_results_fragment"
+        android:name="com.aa.slangapp.com.aa.slangapp.search.ui.SearchResultsFragment"
+        android:label="Search Results Fragment"
+        tools:layout="@layout/fragment_search_results">
+        <argument
+            android:name="term"
+            app:argType="string" />
     </fragment>
 
 </navigation>
