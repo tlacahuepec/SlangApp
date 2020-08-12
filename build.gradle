@@ -19,6 +19,10 @@ buildscript {
     ext.gsonVersion = "2.8.2"
     ext.roomVersion = '2.2.0-alpha01'
     ext.navigationVersion = "2.3.0"
+    ext.coreTestingVersion = '2.0.0'
+    ext.mockwebserverVersion = "3.8.1"
+    ext.mockitoVersion = "2.25.0"
+    ext.okhttp = "4.8.1"
 
     repositories {
         google()
