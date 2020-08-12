@@ -1,7 +1,6 @@
 package com.aa.slangapp.com.aa.slangapp.search.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import com.aa.slangapp.com.aa.slangapp.dependencyInjection.Injectable
 import com.aa.slangapp.com.aa.slangapp.dependencyInjection.injectViewModel
 import com.aa.slangapp.databinding.FragmentSearchResultsBinding
 import com.aa.slangapp.search.adapter.SearchResultsAdapter
+import com.aa.slangapp.search.api.SearchResult
 import com.aa.slangapp.search.data.Result
 import com.aa.slangapp.search.ui.SearchResultsViewModel
 import javax.inject.Inject
@@ -49,7 +49,6 @@ class SearchResultsFragment : Fragment(), Injectable {
         binding.buttonOrderByThumbsDown.setOnClickListener {
             viewModel.searchResults.observe(viewLifecycleOwner, Observer { result ->
                 result.let {
-                    Log.i("SearchResultsFragment", "searchResults")
                     when (result.status) {
                         Result.Status.SUCCESS -> {
                             binding.progressBar.hide()
@@ -68,37 +67,29 @@ class SearchResultsFragment : Fragment(), Injectable {
         }
 
         binding.buttonOrderByThumbsUp.setOnClickListener {
-            viewModel.searchResults.observe(viewLifecycleOwner, Observer { result ->
-                result.let {
-                    Log.i("SearchResultsFragment", "searchResults")
-                    when (result.status) {
-                        Result.Status.SUCCESS -> {
-                            binding.progressBar.hide()
-                            result.data?.let { data ->
-                                val sortedByThumbsDown = data.sortedByDescending { it.thumbsUp }
-                                adapter.submitList(sortedByThumbsDown)
-                            }
-                        }
-                        Result.Status.LOADING -> binding.progressBar.show()
-                        Result.Status.ERROR -> {
-                            binding.progressBar.hide()
-                        }
-                    }
-                }
-            })
+            viewModel.searchResults.observe(viewLifecycleOwner, defaultObserver(binding, adapter))
         }
 
         return binding.root
     }
 
     private fun subscribeUi(binding: FragmentSearchResultsBinding, adapter: SearchResultsAdapter) {
-        viewModel.searchResults.observe(viewLifecycleOwner, Observer { result ->
+        viewModel.searchResults.observe(viewLifecycleOwner, defaultObserver(binding, adapter))
+    }
+
+    private fun defaultObserver(
+        binding: FragmentSearchResultsBinding,
+        adapter: SearchResultsAdapter
+    ): Observer<Result<List<SearchResult>>> {
+        return Observer { result ->
             result.let {
-                Log.i("SearchResultsFragment", "searchResults")
                 when (result.status) {
                     Result.Status.SUCCESS -> {
                         binding.progressBar.hide()
-                        result.data?.let { adapter.submitList(it) }
+                        result.data?.let { data ->
+                            val thumbsUpSortedList = data.sortedByDescending { it.thumbsUp }
+                            adapter.submitList(thumbsUpSortedList)
+                        }
                     }
                     Result.Status.LOADING -> binding.progressBar.show()
                     Result.Status.ERROR -> {
@@ -106,6 +97,6 @@ class SearchResultsFragment : Fragment(), Injectable {
                     }
                 }
             }
-        })
+        }
     }
 }
