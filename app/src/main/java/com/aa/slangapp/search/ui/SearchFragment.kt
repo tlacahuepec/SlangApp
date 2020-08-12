@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.aa.slangapp.com.aa.slangapp.dependencyInjection.Injectable
 import com.aa.slangapp.com.aa.slangapp.dependencyInjection.injectViewModel
+import com.aa.slangapp.com.aa.slangapp.search.ui.hideKeyboard
 import com.aa.slangapp.databinding.FragmentSearchBinding
 import javax.inject.Inject
 
@@ -35,6 +36,7 @@ class SearchFragment : Fragment(), Injectable {
         binding.viewmodel = viewModel
 
         binding.buttonSearch.setOnClickListener {
+            hideKeyboard()
             val direction =
                 SearchFragmentDirections.actionSearchFragmentToSearchResultsFragment(binding.editTextSearch.text.toString())
             it.findNavController().navigate(direction)
