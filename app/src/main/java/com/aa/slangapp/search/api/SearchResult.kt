@@ -11,8 +11,10 @@ data class SearchResult(
     val id: Int,
     @field:SerializedName("definition")
     val definition: String,
-    @field:SerializedName("thumbsUp")
+    @field:SerializedName("thumbs_up")
     val thumbsUp: Int,
     @field:SerializedName("word")
-    val word: String
+    val word: String,
+    @field:SerializedName("thumbs_down")
+    val thumbsDown: Int
 )

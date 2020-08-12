@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -15,11 +16,76 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp">
 
-        <TextView
-            android:id="@+id/textViewDefinitionId"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{searchResult.definition}" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewWordLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Word:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewWord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{searchResult.word}"
+                app:layout_constraintStart_toStartOf="@id/textViewWordLabel"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewDefinitionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Definition: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewWord" />
+
+            <TextView
+                android:id="@+id/textViewDefinition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{searchResult.definition}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewDefinitionLabel" />
+
+            <TextView
+                android:id="@+id/textViewThumbsUpLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ThumbsUp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewDefinition" />
+
+            <TextView
+                android:id="@+id/textViewThumbsUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(searchResult.thumbsUp)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewThumbsUpLabel" />
+
+            <TextView
+                android:id="@+id/textViewThumbsDownLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ThumbsDown"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewThumbsUp" />
+
+            <TextView
+                android:id="@+id/textViewThumbsDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(searchResult.thumbsDown)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewThumbsDownLabel" />
+        </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 
