@@ -46,6 +46,48 @@ class SearchResultsFragment : Fragment(), Injectable {
 
         subscribeUi(binding, adapter)
 
+        binding.buttonOrderByThumbsDown.setOnClickListener {
+            viewModel.searchResults.observe(viewLifecycleOwner, Observer { result ->
+                result.let {
+                    Log.i("SearchResultsFragment", "searchResults")
+                    when (result.status) {
+                        Result.Status.SUCCESS -> {
+                            binding.progressBar.hide()
+                            result.data?.let { data ->
+                                val sortedByThumbsDown = data.sortedByDescending { it.thumbsDown }
+                                adapter.submitList(sortedByThumbsDown)
+                            }
+                        }
+                        Result.Status.LOADING -> binding.progressBar.show()
+                        Result.Status.ERROR -> {
+                            binding.progressBar.hide()
+                        }
+                    }
+                }
+            })
+        }
+
+        binding.buttonOrderByThumbsUp.setOnClickListener {
+            viewModel.searchResults.observe(viewLifecycleOwner, Observer { result ->
+                result.let {
+                    Log.i("SearchResultsFragment", "searchResults")
+                    when (result.status) {
+                        Result.Status.SUCCESS -> {
+                            binding.progressBar.hide()
+                            result.data?.let { data ->
+                                val sortedByThumbsDown = data.sortedByDescending { it.thumbsUp }
+                                adapter.submitList(sortedByThumbsDown)
+                            }
+                        }
+                        Result.Status.LOADING -> binding.progressBar.show()
+                        Result.Status.ERROR -> {
+                            binding.progressBar.hide()
+                        }
+                    }
+                }
+            })
+        }
+
         return binding.root
     }
 
