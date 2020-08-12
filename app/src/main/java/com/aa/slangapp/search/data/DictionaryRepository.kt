@@ -9,11 +9,9 @@ class DictionaryRepository @Inject constructor(
     private val remoteSource: DictionaryDataSource
 ) {
 
-    private val search = "Sporty"
-
-    val searchResults = resultLiveData(
-        databaseQuery = { dao.getResults(search) },
-        networkCall = { remoteSource.fetchData(search) },
+    fun searchResultsByTerm(term: String) = resultLiveData(
+        databaseQuery = { dao.getResults(term) },
+        networkCall = { remoteSource.fetchData(term) },
         saveCallResult = { dao.insertAll(it.results) })
 
 }
