@@ -1,6 +1,5 @@
 package com.aa.slangapp.search.data
 
-//TODO: test
 data class Result<out T>(val status: Status, val data: T?, val message: String?) {
 
     enum class Status {

@@ -4,7 +4,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-// TODO: add headers
 interface DictionaryService {
     @GET("define")
     suspend fun define(
@@ -14,21 +13,6 @@ interface DictionaryService {
     companion object {
         const val HOST = "mashape-community-urban-dictionary.p.rapidapi.com"
         const val BASE_URL = "https://$HOST/"
-
-//        fun create(): DictionaryService {
-//            val logger = HttpLoggingInterceptor().apply { level = BASIC }
-//
-//            val client = OkHttpClient.Builder()
-//                .addInterceptor(logger)
-//                .build()
-//
-//            return Retrofit.Builder()
-//                .baseUrl(BASE_URL)
-//                .client(client)
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build()
-//                .create(DictionaryService::class.java)
-//        }
     }
 
 }
