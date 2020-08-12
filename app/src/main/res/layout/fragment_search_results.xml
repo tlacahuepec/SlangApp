@@ -13,6 +13,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/buttonOrderByThumbsUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order By Thumbs Up"
+            app:layout_constraintEnd_toStartOf="@+id/buttonOrderByThumbsDown"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonOrderByThumbsDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order By Thumbs Down"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonOrderByThumbsUp"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
@@ -28,9 +46,10 @@
             android:id="@+id/recyclerViewResults"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/buttonOrderByThumbsUp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

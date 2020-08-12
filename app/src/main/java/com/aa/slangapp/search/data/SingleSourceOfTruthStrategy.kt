@@ -1,6 +1,7 @@
 package com.aa.slangapp.search.data
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
 import com.aa.slangapp.search.data.Result.Status.ERROR
@@ -33,3 +34,6 @@ fun <T, A> resultLiveData(
             emitSource(source)
         }
     }
+
+
+
