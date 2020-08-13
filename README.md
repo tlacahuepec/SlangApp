@@ -8,5 +8,9 @@ In order to use the app you need to provide an API key for the [URBAN-Dictionary
 api_developer_key = <YOUR_API_KEY>
 ```
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate.
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
